@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase CRUD</title>
+
+  <!-- BOOTSWATCH -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/pulse/bootstrap.min.css">
+
+  <!-- ANIMATE CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+
+</head>
+
+<body class="bg-light">
+
+  <!-- ADD TASK -->
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+
+            <h1 class="h4">Add Task</h1>
+
+            <form id="task-form">
+              <div class="form-group">
+                <input type="text" id="task-title" class="form-control" class="Task Title" placeholder="Task Title"
+                  autofocus>
+              </div>
+              <div class="form-group">
+                <textarea id="task-description" rows="3" class="form-control" placeholder="Task Description"></textarea>
+              </div>
+
+              <input type="button"  value="Save" onclick="btntask()"/>
+                
+           
+
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Tasks List -->
+      <div class="col-md-6" id="tasks-container"></div>
+    </div>
+  </div>
+  
+  <form id="singup-form">
+    <style>
+      p.cua {
+        font-size: 50px;
+      }
+    </style>
+    <fieldset class="clearfix">
+      <p class="cua">Registrarse</p>
+      <!--SE INGRESAN LOS DATOS CON UN ID MANIPULABLE EN EL MAIN.JS-->
+      <p><span class="fontawesome-user"></span><input type="text" id="singup-email"
+          onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''"
+          required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+      <p><span class="fontawesome-lock"></span><input type="password" id="singup-password"
+          onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''"
+          required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+      <p><input type="submit" value="Regístrate"></p>
+      <p><input type="submit" value="Iniciar sesión con Google" id="logingoogle"></p>
+  
+  
+    </fieldset>
+  
+  </form>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyD2GYBgODu5PNILwRyoCZtDovbQDPA7-9g",
+    authDomain: "construid.firebaseapp.com",
+    projectId: "construid",
+    storageBucket: "construid.appspot.com",
+    messagingSenderId: "663892696153",
+    appId: "1:663892696153:web:a2056acd04806ef0ffe548",
+    measurementId: "G-LG36SMD4JR"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  </script>
+
+  <!-- CUSTOM CODE -->
+  <script src="index.js"></script>
+</body>
+
+</html>
+
+
+
